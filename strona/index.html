@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>BattleShip Simulator</title>
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.min.css">
-  <link rel="stylesheet" href="css/normalize.css">
 </head>
 <body>
   <div class="container-fluid">
@@ -23,44 +23,44 @@
       <hr>
     </section>
     <section class="game-container row row-center">
-        <div class="fleet col-3">
+        <div class="fleet col-md-3 col-sm-6">
           <h3 class="">First Fleet</h3>
-          <div class="ship"><span>mt:</span><input type="text" name="mt_one" value=""></div>
-          <div class="ship"><span>dt:</span><input type="text" name="dt_one" value=""></div>
-          <div class="ship"><span>cm:</span><input type="text" name="cm_one" value=""></div>
-          <div class="ship"><span>kr:</span><input type="text" name="kr_one" value=""></div>
-          <div class="ship"><span>ow:</span><input type="text" name="ow_one" value=""></div>
-          <div class="ship"><span>sk:</span><input type="text" name="sk_one" value=""></div>
-          <div class="ship"><span>re:</span><input type="text" name="re_one" value=""></div>
-          <div class="ship"><span>ss:</span><input type="text" name="ss_one" value=""></div>
-          <div class="ship"><span>b:</span><input type="text" name="b_one" value=""></div>
-          <div class="ship"><span>n:</span><input type="text" name="n_one" value=""></div>
-          <div class="ship"><span>gs:</span><input type="text" name="gs_one" value=""></div>
-          <div class="ship"><span>p:</span><input type="text" name="p_one" value=""></div>
+          <div class="ship"><span>mt:</span><input type="text" name="mt_one" value="0"></div>
+          <div class="ship"><span>dt:</span><input type="text" name="dt_one" value="0"></div>
+          <div class="ship"><span>cm:</span><input type="text" name="cm_one" value="0"></div>
+          <div class="ship"><span>kr:</span><input type="text" name="kr_one" value="0"></div>
+          <div class="ship"><span>ow:</span><input type="text" name="ow_one" value="0"></div>
+          <div class="ship"><span>sk:</span><input type="text" name="sk_one" value="0"></div>
+          <div class="ship"><span>re:</span><input type="text" name="re_one" value="0"></div>
+          <div class="ship"><span>ss:</span><input type="text" name="ss_one" value="0"></div>
+          <div class="ship"><span>b:</span><input type="text" name="b_one" value="0"></div>
+          <div class="ship"><span>n:</span><input type="text" name="n_one" value="0"></div>
+          <div class="ship"><span>gs:</span><input type="text" name="gs_one" value="0"></div>
+          <div class="ship"><span>p:</span><input type="text" name="p_one" value="0"></div>
         </div>
-        <div class="fleet col-3">
+        <div class="fleet col-md-3 col-sm-6">
           <h3 class="">Second Fleet</h3>
-          <div class="ship"><span>mt:</span><input type="text" name="mt_one" value=""></div>
-          <div class="ship"><span>dt:</span><input type="text" name="dt_one" value=""></div>
-          <div class="ship"><span>cm:</span><input type="text" name="cm_one" value=""></div>
-          <div class="ship"><span>kr:</span><input type="text" name="kr_one" value=""></div>
-          <div class="ship"><span>ow:</span><input type="text" name="ow_one" value=""></div>
-          <div class="ship"><span>sk:</span><input type="text" name="sk_one" value=""></div>
-          <div class="ship"><span>re:</span><input type="text" name="re_one" value=""></div>
-          <div class="ship"><span>ss:</span><input type="text" name="ss_one" value=""></div>
-          <div class="ship"><span>b:</span><input type="text" name="b_one" value=""></div>
-          <div class="ship"><span>n:</span><input type="text" name="n_one" value=""></div>
-          <div class="ship"><span>gs:</span><input type="text" name="gs_one" value=""></div>
-          <div class="ship"><span>p:</span><input type="text" name="p_one" value=""></div>
+          <div class="ship"><span>mt:</span><input type="text" name="mt_two" value="0"></div>
+          <div class="ship"><span>dt:</span><input type="text" name="dt_two" value="0"></div>
+          <div class="ship"><span>cm:</span><input type="text" name="cm_two" value="0"></div>
+          <div class="ship"><span>kr:</span><input type="text" name="kr_two" value="0"></div>
+          <div class="ship"><span>ow:</span><input type="text" name="ow_two" value="0"></div>
+          <div class="ship"><span>sk:</span><input type="text" name="sk_two" value="0"></div>
+          <div class="ship"><span>re:</span><input type="text" name="re_two" value="0"></div>
+          <div class="ship"><span>ss:</span><input type="text" name="ss_two" value="0"></div>
+          <div class="ship"><span>b:</span><input type="text" name="b_two" value="0"></div>
+          <div class="ship"><span>n:</span><input type="text" name="n_two" value="0"></div>
+          <div class="ship"><span>gs:</span><input type="text" name="gs_two" value="0"></div>
+          <div class="ship"><span>p:</span><input type="text" name="p_two" value="0"></div>
         </div>
-        <div class="result col-6">
+        <div class="result col-md-6 col-sm-12">
           <h3 class="">Results:</h3>
           <hr>
-          <div class="answers" id="answers">
-
+          <div class="answers">
+            <p id="answers"></p>
           </div>
-          <div class="row row-right">
-            <button class="btn btn-default btn-dark">
+          <div class="row row-right col-12">
+            <button class="btn btn-default btn-dark" id="sendButton">
               Confirm
             </button>
           </div>
@@ -73,6 +73,8 @@
         <span class="col-12 center">Made By Dominik Szyja <a href="http://dominikszyja.pl/">dominikszyja.pl</a></span>
     </footer>
   </div>
+
+  <script src="js/connect.js" charset="utf-8"></script>
 
 </body>
 </html>

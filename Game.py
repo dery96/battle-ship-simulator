@@ -7,8 +7,8 @@ class Game(ShipProps):
     ''' Game Class Runs Simulation of a battle '''
     def __init__(self):
         ShipProps.__init__(self)
-        self.fleetOne = self.getFleet('flota_1.txt')
-        self.fleetTwo = self.getFleet('flota_2.txt')
+        self.fleetOne = self.getFleet('ship_info/flota_1.txt')
+        self.fleetTwo = self.getFleet('ship_info/flota_2.txt')
 
 
     def getFleet(self, file):
@@ -116,7 +116,7 @@ class Game(ShipProps):
 
     def _showAllFleet(self, fleet):
         if len(fleet) <= 1 and len(fleet[0]) == 2:
-            print("FLOTA ROZWALONA")
+            print("FLEET DESTROYED")
         else:
             for shipType in fleet:
                 print(shipType[0], len(shipType[2:]))

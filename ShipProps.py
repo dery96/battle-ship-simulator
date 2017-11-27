@@ -19,7 +19,7 @@ class ShipProps(object):
         '''Takes all Ship type from txt file and create list of values for
            specific ship type'''
         shipProps = []
-        with open('dane_statkow.txt','r') as f:
+        with open('ship_info/dane_statkow.txt','r') as f:
             for line in f:
                 shipProp = line.strip().split()
                 for i in range(len(shipProp)):
@@ -35,5 +35,5 @@ class ShipProps(object):
     def getShipAtkChance(self):
         ''' Every ship have chance for re attack based on ship type
             it returns list of that chances '''
-        with open('szybkie_dziala.txt','r') as f:
+        with open('ship_info/szybkie_dziala.txt','r') as f:
             return [list(line.strip().split()) for line in f]
