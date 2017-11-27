@@ -1,0 +1,125 @@
+$dark: #1E1D23;
+$light: #FCFBFB;
+body {
+  background: #FCFBFB;
+}
+
+.area {
+  // outline: 1px solid #1E1D23;
+}
+header {
+  // height: 15vh;
+  background-color: #1E1D23;
+  padding-top: 4em;
+  padding-bottom: 1em;
+  color: #FCFBFB;
+  border-top: 1px solid grey;
+  border-bottom: 2px solid grey;
+  margin-bottom: 3em;
+
+}
+
+.desc {
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  hr {
+    display: block;
+    width: 80%;
+    height: 1px;
+  }
+
+}
+section {
+  .fleet, .result {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 1.5em;
+    text-shadow: 2px 2px rgba(0,0,0,0.2);
+  }
+    .fleet {
+      color: $light;
+      h3 {
+        margin-top: .2em;
+      }
+      &:first-child {
+        background-color: red;
+        border-top-left-radius: .5em;
+        border-bottom-left-radius: .5em;
+      }
+      &:nth-child(2n+2 ) {
+        background-color: blue;
+        border-left: 1px solid;
+        border-top-right-radius: .5em;
+        border-bottom-right-radius: .5em;
+      }
+      // background-color: #fafafa;
+      .ship {
+        display: flex;
+        justify-content:space-between;
+        width: 150px;
+        margin: 5px 10px;
+        input {
+          width: 100px;
+          background-color: $light;
+          color: $dark;
+        }
+      }
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+    }
+    .result{
+      h3 {
+        margin-top: .2em;
+      }
+      text-align: left;
+      color: $dark;
+      // background: $dark;
+      .answers {
+        height: 45vh;
+        border: 1px solid grey;
+        border-radius: .5em;
+        margin-top: 1.5em;
+      }
+      .btn-dark {
+        margin-top: 2em;
+        background: $dark;
+        margin-right: 25px;
+        width: 8em;
+        border-radius: .9em;
+        padding: 8px;
+        box-shadow: 0 4px 3px rgba(0,0,0,0.12), 0 5px 6px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        text-shadow: 2px 2px rgba(0,0,0,0.2);
+
+        &:hover {
+          box-shadow: 0 5px 8px rgba(0,0,0,0.25), 0 7px 10px rgba(0,0,0,0.22);
+        }
+      }
+
+    }
+}
+footer {
+  background-color: #1E1D23;
+  color: #FCFBFB;
+  margin-top: 2em;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  span {
+    padding-top: .4em;
+    padding-bottom: .4em;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.row-center {
+  justify-content: center;
+}
+
+.row-right {
+  justify-content: flex-end;
+}
