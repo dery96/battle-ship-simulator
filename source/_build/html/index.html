@@ -1,0 +1,218 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Battle Ship Simulator’s documentation! &#8212; Battle Ship Simulator 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-battle-ship-simulator-s-documentation">
+<h1>Welcome to Battle Ship Simulator’s documentation!<a class="headerlink" href="#welcome-to-battle-ship-simulator-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-Game"></span><dl class="class">
+<dt id="Game.Game">
+<em class="property">class </em><code class="descclassname">Game.</code><code class="descname">Game</code><span class="sig-paren">(</span><em>fleetOne=None</em>, <em>fleetTwo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Game.Game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Game Class Runs Simulation of a battle</p>
+<dl class="method">
+<dt id="Game.Game.battle">
+<code class="descname">battle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game.Game.battle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Two fleets fight for 6 rounds order of ship attack is determined by
+[mt dt lm cm kr ow sk re ss b n gs p]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Game.Game.clearDestroyedShips">
+<code class="descname">clearDestroyedShips</code><span class="sig-paren">(</span><em>fleet</em>, <em>fleetNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#Game.Game.clearDestroyedShips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks wich Ships are destroyed after round and remove it also
+set default sp and armor for the next round!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Game.Game.getFleet">
+<code class="descname">getFleet</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span><a class="headerlink" href="#Game.Game.getFleet" title="Permalink to this definition">¶</a></dt>
+<dd><p>If self.fleetOne is None and self.fleetTwo is None it will read
+fleet from txt files</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Game.Game.getFleetFromJson">
+<code class="descname">getFleetFromJson</code><span class="sig-paren">(</span><em>fleet</em><span class="sig-paren">)</span><a class="headerlink" href="#Game.Game.getFleetFromJson" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate fleet if comes from json request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Game.Game.makeInstanceOfShips">
+<code class="descname">makeInstanceOfShips</code><span class="sig-paren">(</span><em>fleet</em><span class="sig-paren">)</span><a class="headerlink" href="#Game.Game.makeInstanceOfShips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates instance of specific ship Type example: [‘mt’, 20] will create
+20 ship instances of mt ship type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Game.Game.printship">
+<code class="descname">printship</code><span class="sig-paren">(</span><em>fleet</em><span class="sig-paren">)</span><a class="headerlink" href="#Game.Game.printship" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints every ship sp points</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="Game.random">
+<code class="descclassname">Game.</code><code class="descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; x in the interval [0, 1).<a class="headerlink" href="#Game.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-Ship"></span><dl class="class">
+<dt id="Ship.Ship">
+<em class="property">class </em><code class="descclassname">Ship.</code><code class="descname">Ship</code><span class="sig-paren">(</span><em>shipProps</em>, <em>shipNames</em>, <em>shipAtkChance</em><span class="sig-paren">)</span><a class="headerlink" href="#Ship.Ship" title="Permalink to this definition">¶</a></dt>
+<dd><p>docstring for Statek.</p>
+<dl class="method">
+<dt id="Ship.Ship.attackShip">
+<code class="descname">attackShip</code><span class="sig-paren">(</span><em>otherShip</em><span class="sig-paren">)</span><a class="headerlink" href="#Ship.Ship.attackShip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attack OtherShip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Ship.Ship.checkIfCanAttackAgain">
+<code class="descname">checkIfCanAttackAgain</code><span class="sig-paren">(</span><em>otherShip</em><span class="sig-paren">)</span><a class="headerlink" href="#Ship.Ship.checkIfCanAttackAgain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fast Guns FOR specific ship determine if can attack again in the
+same round [mt dt lm cm kr ow sk re ss b n gs p]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Ship.Ship.fire">
+<code class="descname">fire</code><span class="sig-paren">(</span><em>otherShip</em><span class="sig-paren">)</span><a class="headerlink" href="#Ship.Ship.fire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fire missle to hostile Ship!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Ship.Ship.getDamagePercentage">
+<code class="descname">getDamagePercentage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Ship.Ship.getDamagePercentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets information about ship damage percentage
+(it means how much ship is destroyed)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="Ship.random">
+<code class="descclassname">Ship.</code><code class="descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; x in the interval [0, 1).<a class="headerlink" href="#Ship.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-ShipProps"></span><dl class="class">
+<dt id="ShipProps.ShipProps">
+<em class="property">class </em><code class="descclassname">ShipProps.</code><code class="descname">ShipProps</code><a class="headerlink" href="#ShipProps.ShipProps" title="Permalink to this definition">¶</a></dt>
+<dd><p>ShipProps reads every property that’s written for specific ship in txt
+file and write it to list</p>
+<dl class="method">
+<dt id="ShipProps.ShipProps.getShipAtkChance">
+<code class="descname">getShipAtkChance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ShipProps.ShipProps.getShipAtkChance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every ship have chance for re attack based on ship type
+it returns list of that chances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ShipProps.ShipProps.getShipNames">
+<code class="descname">getShipNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ShipProps.ShipProps.getShipNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Ship Shortcodes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ShipProps.ShipProps.getShipProps">
+<code class="descname">getShipProps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ShipProps.ShipProps.getShipProps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes all Ship type from txt file and create list of values for
+specific ship type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ShipProps.ShipProps.show">
+<code class="descname">show</code><span class="sig-paren">(</span><em>listName</em><span class="sig-paren">)</span><a class="headerlink" href="#ShipProps.ShipProps.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show list in readable style</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Dominik Szyja.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
