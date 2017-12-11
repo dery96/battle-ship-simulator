@@ -5,16 +5,16 @@
   const fleetTwo = {};
 
   const emptyFleetTest = (fleet) => {
-    let result = false;
+    // if
     for (let [key, value] of Object.entries(fleet)) {
-      if (parseInt(value, 10) != NaN && parseInt(value, 10) > 0) {
-        return true;
+      if (!isNaN(value) && parseInt(value) > 0) {
+        return false;
       }
     }
-    return false;
+    return true;
   }
 
-  const testFleets = (inputs) => {
+  const fleetFormToArray = (inputs) => {
     inputs.forEach((object) => {
       if (object.name.includes('one')) {
         fleetOne[object.name] = object.value;
@@ -26,32 +26,41 @@
 
   const btnClick = () => {
     inputs = document.querySelectorAll("input");
-    testFleets(inputs);
-    if (emptyFleetTest(fleetOne) && emptyFleetTest(fleetTwo)) {
-      console.log(fleetOne, fleetTwo);
-      answers.innerHTML = "Waiting for answer"
+    fleetFormToArray(inputs);
+    if (!emptyFleetTest(fleetOne) && !emptyFleetTest(fleetTwo)) {
+      data = new Object();
+      data.fleetOne = fleetOne;
+      data.fleetTwo = fleetTwo;
+      sendFleetbyPostRequest(data);
     } else {
       answers.innerHTML = "<span class=\"buttonError\">To run simulation you must write ship numbers!</span>"
     }
   }
 
-  // sendFleetbyPostRequest() {
-  //   var headers = new Headers();
-  //   headers.append('Accept', 'application/json'); // This one is enough for GET requests
-  //   headers.append('Content-Type', 'application/json'); // This one sends body
-  //
-  //   return fetch('localhost:8080/post/fleet', {
-  //     method: 'POST',
-  //     mode: 'same-origin',
-  //     credentials: 'include',
-  //     redirect: 'follow',
-  //     headers: headers,
-  //     body: JSON.stringify(fleetOne, fleetTwo)
-  //   }).then(resp => {
-  //     ...
-  //   }).catch(err => {
-  //     ...
-  //   })
-  // }
+  const sendFleetbyPostRequest = (data) => {
+    var headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
+    fetch('http://localhost:5000/battle', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(data)
+    }).then(resp => {
+      answers.innerHTML = "Waiting for answer"
+      return resp.json();
+    }).then(resp => {
+      resp.log = resp.log.replace(/\n/g,"<br>")
+      resp.log = resp.log.replace(/> Round/g,"<span style='font-weight: bold;'> > Round </span>")
+      resp.log = resp.log.replace(/One:/g,"<span style='color: #a92b29;font-weight: bold;'> One: </span>")
+      resp.log = resp.log.replace(/Two:/g,"<span style='color: #283A4F;font-weight: bold;'> Two: </span>")
+      answers.innerHTML = resp.log;
+      console.log(resp);
+    }).catch(err => {
+      console.log(err);
+    })
+  }
   sendButton.addEventListener('click', btnClick, false);
 }

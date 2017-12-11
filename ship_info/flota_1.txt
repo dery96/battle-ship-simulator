@@ -1,7 +1,7 @@
 skrót ilość
 mt 0
 dt 0
-lm 1000
+lm 1
 cm 0
 kr 0
 ow 0

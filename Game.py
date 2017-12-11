@@ -1,15 +1,20 @@
 from random import randint
-
+import json
 from ShipProps import *
 from Ship import *
 
 class Game(ShipProps):
     ''' Game Class Runs Simulation of a battle '''
-    def __init__(self):
+    def __init__(self, fleetOne=None, fleetTwo=None):
         ShipProps.__init__(self)
-        self.fleetOne = self.getFleet('ship_info/flota_1.txt')
-        self.fleetTwo = self.getFleet('ship_info/flota_2.txt')
-
+        self.battleLog = ''
+        self.shipDestroyment = ''
+        if fleetOne is None and fleetTwo is None:
+            self.fleetOne = self.getFleet('ship_info/flota_1.txt')
+            self.fleetTwo = self.getFleet('ship_info/flota_2.txt')
+        else:
+            self.fleetOne = self.getFleetFromJson(fleetOne)
+            self.fleetTwo = self.getFleetFromJson(fleetTwo)
 
     def getFleet(self, file):
         fleetList = []
@@ -19,6 +24,13 @@ class Game(ShipProps):
                 if len(elem) == 2 and elem[1].isdigit():
                     if int(elem[1]) != 0:
                         fleetList.append(elem)
+        return self.makeInstanceOfShips(fleetList)
+
+    def getFleetFromJson(self, fleet):
+        fleetList = []
+        for key, value in fleet.items():
+            if int(value) > 0:
+                fleetList.append([key[:key.index('_')], value])
         return self.makeInstanceOfShips(fleetList)
 
 
@@ -31,19 +43,21 @@ class Game(ShipProps):
         return fleet
 
     def printship(self, fleet):
-        print("--"*20)
+        self.shipDestroyment += "--"*20
+        # print("--"*20)
         for type in fleet:
             for ship in type:
-                print(ship)
+                self.shipDestroyment += "\n %s" % (ship)
+                # print(ship)
 
     def battle(self):
         '''Two fleets fight for 6 rounds order of ship attack is determined by
            [mt dt lm cm kr ow sk re ss b n gs p]'''
         rounds = 1
         while (rounds != 6):
-            # self.printship(self.fleetOne)
+            self.printship(self.fleetOne)
             for shipType in self.fleetOne:
-                print("Rodzaj statku teraz", shipType[0])
+                # print("Rodzaj statku teraz", shipType[0])
                 for shipInstance in shipType:
                     if type(shipInstance).__name__ == 'instance':
                         # randomly chooseShip from enemy ship
@@ -70,8 +84,10 @@ class Game(ShipProps):
             if self.clearDestroyedShips(self.fleetTwo, 2):
                 self.showAllFleet(rounds)
                 break
-            rounds += 1
             self.showAllFleet(rounds)
+            self.printship(self.fleetOne)
+            self.printship(self.fleetTwo)
+            rounds += 1
 
 
     def clearDestroyedShips(self, fleet, fleetNumber):
@@ -107,20 +123,25 @@ class Game(ShipProps):
             return False
 
     def showAllFleet(self, rounds):
-        print("\n> Round %s" % (rounds))
-        print("One: ")
+        self.battleLog += "\n> Round %s" % (rounds)
+        self.battleLog += "\n One: "
+
+        # print("\n> Round %s" % (rounds))
+        # print("One: ")
         self._showAllFleet(self.fleetOne)
-        print("Two: ")
+        self.battleLog += "\n Two: "
+        # print("Two: ")
         self._showAllFleet(self.fleetTwo)
 
 
     def _showAllFleet(self, fleet):
         if len(fleet) <= 1 and len(fleet[0]) == 2:
-            print("FLEET DESTROYED")
+            self.battleLog += "\n FLEET DESTROYED"
         else:
             for shipType in fleet:
-                print(shipType[0], len(shipType[2:]))
+                self.battleLog += "\n %s %s" %(shipType[0], len(shipType[2:]))
+                # print(shipType[0], len(shipType[2:]))
 
 
-g = Game()
-g.battle()
+# g = Game()
+# g.battle()

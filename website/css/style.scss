@@ -90,6 +90,7 @@ section {
       color: $dark;
       // background: $dark;
       .answers {
+        overflow: auto;
         height: 45vh;
         border: 1px solid grey;
         border-radius: .5em;
