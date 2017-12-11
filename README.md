@@ -3,4 +3,4 @@
 #### Add simple website for making battle.
 #### finished writing code in python.
 
-![How does website look like](http://https://github.com/dery96/battle-ship-simulator/website-look.jpg)
+![How does website look like](/website-look.jpg)
