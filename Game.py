@@ -17,8 +17,11 @@ class Game(ShipProps):
             self.fleetTwo = self.getFleetFromJson(fleetTwo)
 
     def getFleet(self, file):
+<<<<<<< HEAD
         '''If self.fleetOne is None and self.fleetTwo is None it will read
         fleet from txt files'''
+=======
+>>>>>>> 7a3c74757b048666904e3c17f9590c2ecc188728
         fleetList = []
         with open(file,'r') as f:
             for line in f:
@@ -29,7 +32,10 @@ class Game(ShipProps):
         return self.makeInstanceOfShips(fleetList)
 
     def getFleetFromJson(self, fleet):
+<<<<<<< HEAD
         '''generate fleet if comes from json request'''
+=======
+>>>>>>> 7a3c74757b048666904e3c17f9590c2ecc188728
         fleetList = []
         for key, value in fleet.items():
             if int(value) > 0:
@@ -38,8 +44,11 @@ class Game(ShipProps):
 
 
     def makeInstanceOfShips(self, fleet):
+<<<<<<< HEAD
         '''Creates instance of specific ship Type example: ['mt', 20] will create
         20 ship instances of mt ship type'''
+=======
+>>>>>>> 7a3c74757b048666904e3c17f9590c2ecc188728
         for ship in range(len(fleet)):
             for number in range(int(fleet[ship][1])):
                 specificShipProp = (self.shipProps[self.shipNames.index(fleet[ship][0])])
@@ -48,7 +57,10 @@ class Game(ShipProps):
         return fleet
 
     def printship(self, fleet):
+<<<<<<< HEAD
         '''prints every ship sp points'''
+=======
+>>>>>>> 7a3c74757b048666904e3c17f9590c2ecc188728
         self.shipDestroyment += "--"*20
         # print("--"*20)
         for type in fleet:
