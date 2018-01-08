@@ -17,11 +17,9 @@ class Game(ShipProps):
             self.fleetTwo = self.getFleetFromJson(fleetTwo)
 
     def getFleet(self, file):
-<<<<<<< HEAD
         '''If self.fleetOne is None and self.fleetTwo is None it will read
         fleet from txt files'''
-=======
->>>>>>> 7a3c74757b048666904e3c17f9590c2ecc188728
+
         fleetList = []
         with open(file,'r') as f:
             for line in f:
